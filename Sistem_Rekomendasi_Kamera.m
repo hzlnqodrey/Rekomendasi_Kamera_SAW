@@ -143,8 +143,13 @@ data = readtable('data-kamera.xlsx');
 data = table2cell(data);
 data = data(:,8);
 dataT = [skor, data];
+
+% == Sort the rows based on the first column in descending order
 dataHasil = sortrows(dataT, 1, 'descend');
+
+% Get the top 10 rows
 top10data = dataHasil(1:min(10, size(dataHasil, 1)),:);
+
 set(handles.tabelHasil, 'data', dataHasil);
 disp('data Hasil');
 disp(dataHasil);
